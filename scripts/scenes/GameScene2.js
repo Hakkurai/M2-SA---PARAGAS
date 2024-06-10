@@ -111,7 +111,7 @@ class GameScene2 extends Phaser.Scene {
                 this.gameBgm.stop();
                 winSound.play();
     
-                this.scene.start('GameScene2'); // Transition to GameScene2
+                this.scene.start('GameScene3'); // Transition to GameScene3
             }
         }
     }

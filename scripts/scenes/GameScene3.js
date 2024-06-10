@@ -5,7 +5,7 @@ class GameScene3 extends Phaser.Scene {
 
     preload() {
         
-        this.load.tilemapTiledJSON('map', 'assets/tilemap/tilemap3.json');
+        this.load.tilemapTiledJSON('map3', 'assets/tilemap/tilemap3.json');
 
         this.load.image('tiles', 'assets/tilemap/tileset.png');
                 
@@ -21,7 +21,7 @@ class GameScene3 extends Phaser.Scene {
     }
 
     create() {
-        const map = this.make.tilemap({ key: 'map1' });
+        const map = this.make.tilemap({ key: 'map3' });
         const tileset = map.addTilesetImage('tileset', 'tiles');
     
         const platformLayer = map.createLayer('platform', tileset, 0, 0);
@@ -111,7 +111,7 @@ class GameScene3 extends Phaser.Scene {
                 this.gameBgm.stop();
                 winSound.play();
     
-                this.scene.start('GameScene2'); // Transition to GameScene2
+                this.scene.start('WinScene'); // Transition to WinScene
             }
         }
     }
