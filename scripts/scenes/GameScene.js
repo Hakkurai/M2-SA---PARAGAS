@@ -91,35 +91,31 @@ class GameScene extends Phaser.Scene {
         console.log('Collectible touched');
     
         if (tile) {
-            
             tile.tilemapLayer.removeTileAt(tile.x, tile.y);
     
             this.score += 10;
             this.scoreText.setText('Score: ' + this.score);
-
+    
             this.collectibleCount += 1;
             this.collectibleText.setText('x ' + this.collectibleCount);
     
             const collectSound = this.sound.add('collectSFX');
             collectSound.volume = 0.5; 
-        
             collectSound.play();
     
-            const totalCollectibles = 50; 
-            if (this.score === totalCollectibles) {
-                
+            const totalCollectibles = 5; // Change to 5 if you need to collect 5 milk bottles
+            if (this.collectibleCount === totalCollectibles) {
                 const winSound = this.sound.add('winSFX');
-                winSound.volume = 0.5; 
-        
-                
+                winSound.volume = 0.5;
+    
                 this.gameBgm.stop();
                 winSound.play();
     
-                this.scene.start('WinScene');
+                this.scene.start('GameScene2'); // Transition to GameScene2
             }
-
         }
     }
+    
 
     playerCollideWater(player, water) {
         
